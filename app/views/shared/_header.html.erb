@@ -97,7 +97,9 @@
                   <li
                     class="dropdown mega-menu nav-animate-fadeIn nav-hover-animate hover-animate-bounceIn"
                   >
-                  
+                  <%# <% if user_signed_in? and current_user.admin? %>
+                    <%# <%= link_to "INTERVENTIONS", interventions_path%> 
+                    
                     
                     <% if user_signed_in? %>
                     <%= link_to "LOG OUT", destroy_user_session_path, :method=>'delete'%>
