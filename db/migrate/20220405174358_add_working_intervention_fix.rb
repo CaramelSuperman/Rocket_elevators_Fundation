@@ -1,4 +1,4 @@
-class AddColumnsToIntervention < ActiveRecord::Migration[5.2]
+class AddWorkingInterventionFix < ActiveRecord::Migration[5.2]
   def change
     add_column :interventions, :author, :string
     add_column :interventions, :customerID, :string
@@ -8,10 +8,9 @@ class AddColumnsToIntervention < ActiveRecord::Migration[5.2]
     add_column :interventions, :elevatorID, :string
     add_column :interventions, :start_intervention, :string
     add_column :interventions, :end_intervention, :string
-    add_column :interventions, :result :string
+    add_column :interventions, :result, :string
     add_column :interventions, :report, :string
     add_column :interventions, :status, :string
-  end
-end
-
-    
+      end
+    end
+  

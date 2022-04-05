@@ -117,6 +117,7 @@ class LeadsController < ApplicationController
     
           if @lead.attached_files != nil 
             data = {
+              
               "status": 2, 
               "priority": 1,
               "email": @lead.email,

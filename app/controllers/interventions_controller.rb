@@ -15,7 +15,7 @@ class InterventionsController < ApplicationController
   def new
     @intervention = Intervention.new
     @customer = Customer.all
-    @buildings = Building.all
+    @building = Building.all
     @employee = Employee.all
     
    
