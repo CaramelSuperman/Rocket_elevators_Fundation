@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
     def residential
     end
+
+    def interventions
+    end
 end

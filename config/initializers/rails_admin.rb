@@ -36,7 +36,7 @@ RailsAdmin.config do |config|
   config.navigation_static_links = {
     'Play Briefing' => 'rails_admin/data/playbriefing',
     'Show Customers on Map' => 'rails_admin/data/map',
-    'Data Warehouse' => 'rails_admin/data/index'
+    'Data Warehouse' => 'rails_admin/data/index',
     
   }
 

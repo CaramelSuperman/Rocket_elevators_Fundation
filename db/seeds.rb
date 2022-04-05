@@ -184,6 +184,21 @@ Employee.create!([{
     installFees = totalPriceOfElev * 0.1
     finalPrice = totalPriceOfElev + installFees
 
+    interventions = Intervention.create!({
+      author:rand(1..11),
+      customerID:rand(10..40),
+      buildingID = building.id,
+      battery = current_battery.id,
+      column = current_column.id,
+      elevator = current_elevator.id,
+      employeeID = current_employee.id,
+      start_intervention:"null",
+      end_intervention:"null",
+      result:"incomplete", 
+      report:"empty",
+      result:"pending"
+    })
+
     quotes = Quote.create!({
       building_type:'Residential', 
       product_line:'Standard',

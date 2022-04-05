@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interventions
   post 'twilio/sms'
   resources :quotes
   get 'quotes/quote'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   get 'errors/internal_server_error'
 
   root "home#index"
+  
  
   get 'dropbox/auth' => 'dropbox#auth'
   get 'dropbox/setup' => 'dropbox#setup'
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
   # get '/', to: "home#index"
   get "residential", to: "home#residential"
   get "commercial", to: "home#commercial"
+  get "interventions", to: "intervention#index"
   
   devise_for :users, controllers: {
     sessions: 'users/sessions'
