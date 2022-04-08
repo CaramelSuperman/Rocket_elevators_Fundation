@@ -84,7 +84,7 @@
         <span style="color:rgb(10, 101, 160); font-weight:bolder">FORTH<br></span> Select Column
       </h3>
       <select style="max-width: 150px;" id="column_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:columnID) do %> >
-        <option selected>customer</option>
+        <option selected>column</option>
         <%= @column.each do |e| %>
                 <option value="<%= e.id %>"><%= e.id %></option>
               
@@ -98,7 +98,7 @@
          <span style="color:rgb(10, 101, 160); font-weight:bolder">FITH<br></span> Select Elevator
       </h3>
       <select style="max-width: 150px;" id="elevator_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:elevatorID) do %> >
-        <option selected>customer</option>
+        <option selected>elevator</option>
         <%= @elevator.each do |f| %>
                 <option value="<%= f.id %>"><%= f.id %></option>
 
@@ -115,7 +115,7 @@
       <span style="color:rgb(10, 101, 160); font-weight:bolder">SIXTH<br></span> Select Employee
       </h3>
       <select style="max-width: 150px;"  class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:employee) do %> >
-        <option selected>Employee</option>
+        <option selected>employee</option>
         <%= @employee.each do |g| %>
                 <option value="<%= g.id %>"><%= g.first_name %></option>
         <% end %>
