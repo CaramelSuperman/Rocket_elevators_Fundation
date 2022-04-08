@@ -10,40 +10,139 @@
       </ul>
     </div>
   <% end %>
-    <%= form.select(:customer_id) do %>
-                          <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
-                       <% end %>
-                    <% end %>
-    <%= form.select(:battery_id) do %>
-                          <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
-                       <% end %>
-                    <% end %>
-    <%= form.select(:customer_id) do %>
-                          <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
-                       <% end %>
-                    <% end %> 
-      <%= form.select(:customer_id) do %>
-                          <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
-                       <% end %>
-                    <% end %>
-      <%= form.select(:customer_id) do %>
-                          <% @customer.each do |l| -%>
-                           <%= content_tag(:option, l.Company_Name, value: l.id) %>
-                       <% end %>
-                    <% end %>
-      <%= form.select(:employee_id) do %>
-                          <% @employee.each do |l| -%>
-                           <%= content_tag(:option, l.first_name, value: l.id) %>
-                       <% end %>
-                    <% end %>                                                      
+
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+<br>
+<p>
+
+
+<div class = "container">
+
+<h3>
+      <span style="color:rgb(10, 101, 160); font-weight:bolder">INTERVENTIONS!!!<br></span> Welcome Employee
+      </h3>
+
+  <%= form.text_field(:author, :readonly=>true, :value =>@author) %>
+</div>
+
+
+ <br>
+ <p>                   
+ 
+      <h3>
+      <span style="color:rgb(10, 101, 160); font-weight:bolder">FIRST<br></span> Select customer
+      </h3>
+     <select style="max-width: 150px;" id="customer_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:customerID) do %> >
+        <option selected>customer</option>
+        <%= @customer.each do |b| %>
+                <option value="<%= b.id %>"><%= b.Company_Name %></option>
+                
+                
+        <% end %>
+        <% end %>
+        </select>
+        <br>
+        <br>
+        <br>
+        <h3>
+      <span style="color:rgb(10, 101, 160); font-weight:bolder">SECOND<br></span> Select building 
+      </h3>
+      <select style="max-width: 150px;" id="building_select" class="custom-select mb-0 mr-sm-0 mb-sm-0"  <%= form.select(:buildingID) do %>  >
+        <option selected>building</option>
+        <%= @building.each do |c| %>
+                <option value="<%= c.id %>"><%= c.id %></option>
+                
+        <% end %>
+        <% end %>
+        </select>
+        <br>
+        <br>
+        <br>
+        <h3>
+        <span style="color:rgb(10, 101, 160); font-weight:bolder">THIRD<br></span> Select battery
+      </h3>
+      <select style="max-width: 150px;" id="battery_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:batteryID) do %> >
+        <option selected>Battery</option>
+        <%= @battery.each do |d| %>
+                <option value="<%= d.id %>"><%= d.id %></option>
+                
+        <% end %>
+        <% end %>
+        </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>
+        <span style="color:rgb(10, 101, 160); font-weight:bolder">FORTH<br></span> Select Column
+      </h3>
+      <select style="max-width: 150px;" id="column_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:columnID) do %> >
+        <option selected>customer</option>
+        <%= @column.each do |e| %>
+                <option value="<%= e.id %>"><%= e.id %></option>
+              
+        <% end %>
+        <% end %>
+        </select>
+        <br>
+        <br>
+        <br>
+        <h3>
+         <span style="color:rgb(10, 101, 160); font-weight:bolder">FITH<br></span> Select Elevator
+      </h3>
+      <select style="max-width: 150px;" id="elevator_select" class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:elevatorID) do %> >
+        <option selected>customer</option>
+        <%= @elevator.each do |f| %>
+                <option value="<%= f.id %>"><%= f.id %></option>
+
+        <% end %>
+        <% end %>
+        </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>
+
+      <h3>
+      <span style="color:rgb(10, 101, 160); font-weight:bolder">SIXTH<br></span> Select Employee
+      </h3>
+      <select style="max-width: 150px;"  class="custom-select mb-0 mr-sm-0 mb-sm-0" <%= form.select(:employee) do %> >
+        <option selected>Employee</option>
+        <%= @employee.each do |g| %>
+                <option value="<%= g.id %>"><%= g.first_name %></option>
+        <% end %>
+        <% end %>
+
+        </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>
+       
+      <h3>
+      <span style="color:rgb(10, 101, 160); font-weight:bolder">LAST<br></span> Report
+      </h3>
+<p>
+<%= form.text_area(:report, size: "80x10")%>
+</div>                                                     
                     
   <div class="actions">
     <%= form.submit %>
   </div>
+  
+
+
+
+  
 <% end %>
 
 
