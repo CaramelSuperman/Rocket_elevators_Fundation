@@ -75,69 +75,79 @@ class InterventionsController < ApplicationController
       @intervention = Intervention.new(intervention_params)
 
         
-      fRESHDESK_API_KEY = "VKedLmalpZ1miMed62"
-      fRESHDESK_API_Domain = "https://Codeboxx-supportdesk.freshdesk.com/api/v2/tickets"
+      
+      
         
     
-      respond_to do |format|
-        if @intervention.save
-          format.html { redirect_to "/", notice: "Thank you. We will communicate with you shortly!" }
-          format.json { render :show, status: :created, location: @intervention }
+      
           
-          # attachment_exists = @lead.attached_file_stored_as_binary.attached?
-          # # user_is_customer = Customer.where(email_of_the_company_contact: "#{@lead.email}").present? || Customer.where(technical_manager_email_for_service: "#{@lead.email}").present?
-          # site = RestClient::Resource.new(fRESHDESK_API_Domain,fRESHDESK_API_KEY, 'X')
-          
-          #   data_hash = {
-          #     "status": 2,
-          #     "priority": 1,
-          #     "subject": "#{@intervention.result} from #{@intervention.author}", 
-          #     "description": 
-          #     "The requester #{@intervention.author} started a new intervention
-          #     # for company #{@intervention.customerID} 
-          #     On builging ID #{@intervention.buildingID} // 
-          #     On battery ID #{@intervention.batteryID} //
-          #     On column ID #{@intervention.columnID} //
-          #     On elevator ID #{@intervention.elevatorID} //
-          #     Job is done by employee #{@intervention.employee} //
-          #     The job description #{@intervention.report}
-          #       ",
+          @intervention = Intervention.new(intervention_params)
+          respond_to do |format|
+            if @intervention.save
+      
+              author = @author
               
-          #     "email": "#{@author}",
-          #     "type": "Question"
-          #   }
-            
-          #   data_json = JSON.generate(data_hash)
-          #   # site.post(data_json)
-          #   RestClient::Request.execute(
-          #     method: :post,
-          #     url: fRESHDESK_API_Domain,
-          #     user:fRESHDESK_API_KEY ,
-          #     password: 'X',
-          #     payload: data_json,
-          #     headers: {"Content-Type" => "application/json"},
-          #   )
-  
+              if @intervention.customerID != nil 
+                companyName = Customer.find(@intervention.customerID).Company_Name
+              else
+                companyName = "n/a"
+              end
+              if @intervention.buildingID == nil
+                @intervention.buildingID = "n/a"
+              end
+              if @intervention.batteryID == nil
+                @intervention.batteryID = "n/a"
+              end
+              if @intervention.columnID == nil
+                @intervention.columnID = "n/a"
+              end
+              if @intervention.elevatorID == nil
+                @intervention.elevatorID = "n/a"
+              end
+              
+              if @intervention.employee == nil
+                @intervention.employeeI= "n/a"
+                employeeName = "n/a"
+              else
+                employee = Employee.find(@intervention.employee)
+                employeeName = employee.first_name + " " + employee.last_name
+              end
+      
+              if @intervention.report == nil
+                @intervention.report = "n/a"
+              end
+      
+                data = {
+                  "status": 2, 
+                  "priority": 1,
+                  "email": "admin@rocketelevators.com",
+                  "description": 
+                    "A new intervention has been submitted by employee  for the company, " + companyName + ". The building ID is " + @intervention.buildingID + "; battery ID is " + @intervention.batteryID + ". The column ID is " + @intervention.columnID + ". The elevator ID is " + @intervention.elevatorID + ". The employee to be assigned to the task is " + employeeName + ". Description of the request for the intervention is: " + @intervention.report, 
+                  "type": "Incident",
+                  "subject": "New intervention submitted for building No." + @intervention.buildingID
+                }
+      
+                
+                data_json = JSON.generate(data)
+                  request = RestClient::Request.execute(
+                    method: :post,
+                    url: ENV['fRESHDESK_API_Domain'],
+                    user: ENV['fRESHDESK_API_KEY'],
+                    password: 'X',
+                    payload: data_json,
+                    headers: {"Content-Type" => 'application/json'}
+                  )
         
-  
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @intervention.errors, status: :unprocessable_entity }
+                  logger.debug "----------- #{request.code} --------------"
+      
+              format.html { redirect_to root_path, notice: "Intervention was successfully created." }
+              format.json { render :show, status: :created, location: @intervention }
+            else
+              format.html { render :new, status: :unprocessable_entity }
+              format.json { render json: @intervention.errors, status: :unprocessable_entity }
+            end
+          end
         end
-      end
-    end
-
-  # PATCH/PUT /interventions/1 or /interventions/1.json
-  def update
-    respond_to do |format|
-      if @intervention.update(intervention_params)
-        format.html { redirect_to intervention_url(@intervention), notice: "Intervention was successfully updated." }
-        format.json { render :show, status: :ok, location: @intervention }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @intervention.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /interventions/1 or /interventions/1.json
   def destroy

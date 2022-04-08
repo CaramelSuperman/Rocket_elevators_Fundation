@@ -3,7 +3,7 @@ $(function() {
 
     if ($("#customer_select").val() == "") {
         $("#building_select option").remove();
-        var row = "<option value=\"" + "" + "\">" + "building" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("#building_select");
     }
 
@@ -12,7 +12,7 @@ $(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
             $("#building_select option").remove();
-            var row = "<option value=\"" + "" + "\">" + "building" + "</option>";
+            var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
             $(row).appendTo("#building_select");
             
         } else {
@@ -31,7 +31,7 @@ $(function() {
                 $("#building_select option").remove();
                 
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "building" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("#building_select");
         // Fill course select
         $.each(data, function(i, j) {
@@ -50,7 +50,7 @@ $(function() {
 
     if ($("#building_select").val() == "") {
         $("#battery_select option").remove();
-        var row = "<option value=\"" + "" + "\">" + "battery" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("battery_select");
     }
 
@@ -59,7 +59,7 @@ $(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
             $("#battery_select option").remove();
-            var row = "<option value=\"" + "" + "\">" + "battery" + "</option>";
+            var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
             $(row).appendTo("#battery_select");
             
         } else {
@@ -77,7 +77,7 @@ $(function() {
                 // Clear all options from building select
                 $("#battery_select option").remove();
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "Battery" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("#battery_select");
         // Fill course select
         $.each(data, function(i, j) {
@@ -96,7 +96,7 @@ $(function() {
 
     if ($("#battery_select").val() == "") {
         $("#column_select option").remove();
-        var row = "<option value=\"" + "" + "\">" + "column" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("column_select");
     }
 
@@ -104,7 +104,7 @@ $(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
             $("#column_select option").remove();
-            var row = "<option value=\"" + "" + "\">" + "column" + "</option>";
+            var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
             $(row).appendTo("#column_select");
            
         } else {
@@ -124,7 +124,7 @@ $(function() {
                 $("#column_select option").remove();
                 console.log("very gooooooooddddddd");
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "column" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("#column_select");
         // Fill course select
         $.each(data, function(i, j) {
@@ -144,7 +144,7 @@ $(function() {
 
     if ($("#column_select").val() == "") {
         $("#elevator_select option").remove();
-        var row = "<option value=\"" + "" + "\">" + "elevator" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("elevator_select");
     }
 
@@ -153,7 +153,7 @@ $(function() {
         var id_value_string = $(this).val();
         if (id_value_string == "") {
             $("#elevator_select option").remove();
-            var row = "<option value=\"" + "" + "\">" + "elevator" + "</option>";
+            var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
             $(row).appendTo("#elevator_select");
         } else {
             // Send the request and update building dropdown
@@ -171,7 +171,7 @@ $(function() {
                 $("#elevator_select option").remove();
                 
         //put in a empty default line
-        var row = "<option value=\"" + "" + "\">" + "elevator" + "</option>";
+        var row = "<option value=\"" + "" + "\">" + "None" + "</option>";
         $(row).appendTo("#elevator_select");
         // Fill course select
         $.each(data, function(i, j) {
