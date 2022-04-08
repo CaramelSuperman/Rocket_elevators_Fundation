@@ -83,7 +83,7 @@ class InterventionsController < ApplicationController
         if @intervention.save
           format.html { redirect_to "/", notice: "Thank you. We will communicate with you shortly!" }
           format.json { render :show, status: :created, location: @intervention }
-          puts @author
+          
           # attachment_exists = @lead.attached_file_stored_as_binary.attached?
           # # user_is_customer = Customer.where(email_of_the_company_contact: "#{@lead.email}").present? || Customer.where(technical_manager_email_for_service: "#{@lead.email}").present?
           # site = RestClient::Resource.new(fRESHDESK_API_Domain,fRESHDESK_API_KEY, 'X')
