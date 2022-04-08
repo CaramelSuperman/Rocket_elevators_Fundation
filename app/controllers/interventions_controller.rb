@@ -122,9 +122,9 @@ class InterventionsController < ApplicationController
                   "priority": 1,
                   "email": "admin@rocketelevators.com",
                   "description": 
-                    "A new intervention has been submitted by employee  for the company, " + companyName + ". The building ID is " + @intervention.buildingID + "; battery ID is " + @intervention.batteryID + ". The column ID is " + @intervention.columnID + ". The elevator ID is " + @intervention.elevatorID + ". The employee to be assigned to the task is " + employeeName + ". Description of the request for the intervention is: " + @intervention.report, 
+                    "A new intervention has been submitted by, " + companyName + ". The building ID is " + @intervention.buildingID + "; battery ID is " + @intervention.batteryID + ". The column ID is " + @intervention.columnID + ". The elevator ID is " + @intervention.elevatorID + ". The employee to be assigned to the task is " + employeeName + ". Description of the request for the intervention is: " + @intervention.report, 
                   "type": "Incident",
-                  "subject": "New intervention submitted for building No." + @intervention.buildingID
+                  "subject": " intervention submitted for building Number." + @intervention.buildingID
                 }
       
                 
