@@ -145,3 +145,23 @@ Steps to configure slack:
 ### Twilio
 
 When an elevator status is changed from any non-Intervention status to "Intervention" a text message is immediately sent to the technician in charge of the elevators alerting him that an elevator needs to be checked and gives him the elevator ID at the same time. You can try this very easily by changing an elevator status in the admin pannel.
+
+### Intervention table
+intervention mysql2 table added. 
+
+
+### Intervention form 
+new intervention form added 
+only accesible by admin users
+(small problem, needs to reload the site intervention/new to make the summit button work)
+it saves the form in the intervention table
+
+
+
+
+### Intervention api
+use this link to see the api GET and the two PUTS
+https://documenter.getpostman.com/view/20281199/UVyxQtsk
+GET status get the interventions with "pending" statuses
+PUT changeStatusToInProgres changes the status to in Progress and adds a start date for that intervention
+PUT changeStatusToComplted changes the status to completed and adds a end date for that intervention
