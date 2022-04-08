@@ -151,17 +151,19 @@ intervention mysql2 table added.
 
 
 ### Intervention form 
-new intervention form added 
-only accesible by admin users
-(small problem, needs to reload the site intervention/new to make the summit button work)
-it saves the form in the intervention table
+- new intervention form added 
+- only accesible by admin users
+- (small problem, needs to reload the site intervention/new to make the summit button work)
+- it saves the form in the intervention table
 
 
 
 
 ### Intervention api
-use this link to see the api GET and the two PUTS
-https://documenter.getpostman.com/view/20281199/UVyxQtsk
-GET status get the interventions with "pending" statuses
-PUT changeStatusToInProgres changes the status to in Progress and adds a start date for that intervention
-PUT changeStatusToComplted changes the status to completed and adds a end date for that intervention
+- use this link to see the api GET and the two PUTS
+- https://documenter.getpostman.com/view/20281199/UVyxQtsk
+
+
+- GET status get the interventions with "pending" statuses
+- PUT changeStatusToInProgres changes the status to in Progress and adds a start date for that intervention
+- PUT changeStatusToComplted changes the status to completed and adds a end date for that intervention
