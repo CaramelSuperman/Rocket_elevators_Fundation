@@ -83,38 +83,40 @@ class InterventionsController < ApplicationController
         if @intervention.save
           format.html { redirect_to "/", notice: "Thank you. We will communicate with you shortly!" }
           format.json { render :show, status: :created, location: @intervention }
-  
+          puts @author
           # attachment_exists = @lead.attached_file_stored_as_binary.attached?
-          # user_is_customer = Customer.where(email_of_the_company_contact: "#{@lead.email}").present? || Customer.where(technical_manager_email_for_service: "#{@lead.email}").present?
-          site = RestClient::Resource.new(fRESHDESK_API_Domain,fRESHDESK_API_KEY, 'X')
+          # # user_is_customer = Customer.where(email_of_the_company_contact: "#{@lead.email}").present? || Customer.where(technical_manager_email_for_service: "#{@lead.email}").present?
+          # site = RestClient::Resource.new(fRESHDESK_API_Domain,fRESHDESK_API_KEY, 'X')
           
-            data_hash = {
-              status :2,
-              priority:1,
-              subject:"#{@intervention.result} from #{@intervention.author}", 
-              description:"The requester #{@intervention.author} started a new intervention
-              for company #{@intervention.customerID} 
-              On builging ID #{@intervention.buildingID} // 
-              On battery ID #{@intervention.batteryID} //
-              On column ID #{@intervention.columnID} //
-              On elevator ID #{@intervention.elevatorID} //
-              Job is done by employee #{@intervention.employee} //
-              The job description #{@intervention.report}
-                ",
-              email:"#{@author}",
-              type:"Question"
-            }
+          #   data_hash = {
+          #     "status": 2,
+          #     "priority": 1,
+          #     "subject": "#{@intervention.result} from #{@intervention.author}", 
+          #     "description": 
+          #     "The requester #{@intervention.author} started a new intervention
+          #     # for company #{@intervention.customerID} 
+          #     On builging ID #{@intervention.buildingID} // 
+          #     On battery ID #{@intervention.batteryID} //
+          #     On column ID #{@intervention.columnID} //
+          #     On elevator ID #{@intervention.elevatorID} //
+          #     Job is done by employee #{@intervention.employee} //
+          #     The job description #{@intervention.report}
+          #       ",
+              
+          #     "email": "#{@author}",
+          #     "type": "Question"
+          #   }
             
-            data_json = JSON.generate(data_hash)
-            # site.post(data_json)
-            RestClient::Request.execute(
-              method: :post,
-              url: fRESHDESK_API_Domain,
-              user:fRESHDESK_API_KEY ,
-              password: 'X',
-              payload: data_json,
-              headers: {"Content-Type" => "application/json"},
-            )
+          #   data_json = JSON.generate(data_hash)
+          #   # site.post(data_json)
+          #   RestClient::Request.execute(
+          #     method: :post,
+          #     url: fRESHDESK_API_Domain,
+          #     user:fRESHDESK_API_KEY ,
+          #     password: 'X',
+          #     payload: data_json,
+          #     headers: {"Content-Type" => "application/json"},
+          #   )
   
         
   
