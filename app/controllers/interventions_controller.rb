@@ -6,7 +6,7 @@ class InterventionsController < ApplicationController
   require 'json'
   require 'rest_client'
 
-  
+
   before_action :set_intervention, only: %i[ show edit update destroy ]
 
   # GET /interventions or /interventions.json
@@ -89,12 +89,11 @@ class InterventionsController < ApplicationController
           site = RestClient::Resource.new(fRESHDESK_API_Domain,fRESHDESK_API_KEY, 'X')
           
             data_hash = {
-              status: 2,
-              priority: 1,
-              subject: "#{@intervention.result} from #{@intervention.author}", 
-              description: 
-              "The requester #{@intervention.author} started a new intervention
-              for company #{@intervention.customerID} //
+              status :2,
+              priority:1,
+              subject:"#{@intervention.result} from #{@intervention.author}", 
+              description:"The requester #{@intervention.author} started a new intervention
+              for company #{@intervention.customerID} 
               On builging ID #{@intervention.buildingID} // 
               On battery ID #{@intervention.batteryID} //
               On column ID #{@intervention.columnID} //
@@ -102,8 +101,7 @@ class InterventionsController < ApplicationController
               Job is done by employee #{@intervention.employee} //
               The job description #{@intervention.report}
                 ",
-              
-              email: "#{@author}",
+              email:"#{@author}",
               type:"Question"
             }
             
